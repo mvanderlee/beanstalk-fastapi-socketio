@@ -1,7 +1,22 @@
-fastapi==0.61.2
-fastapi-socketio==0.0.3
-gunicorn==20.0.4
-jinja2==2.11.2
-python-socketio==4.6.0
-ujson==4.0.1
-uvicorn[standard]==0.12.3
+alembic>=1.11,<2
+environs
+fastapi[all]
+fastapi_mail
+fastapi-socketio
+gunicorn
+loguru
+passlib[bcrypt]
+psycopg2-binary
+python-jose[cryptography]
+python-multipart
+python-socketio
+sqlalchemy[asyncio,postgresql_asyncpg,aiosqlite]>=2,<3
+
+
+
+# fastapi[all]==0.61.2
+# fastapi-socketio==0.0.3
+# gunicorn==20.0.4
+# jinja2==2.11.2
+# python-socketio==4.6.0
+# ujson==4.0.1

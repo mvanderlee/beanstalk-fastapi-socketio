@@ -153,3 +153,7 @@ mockups/
 
 .vscode
 .env
+
+local*
+
+thunder-tests/thunderEnvironment.json

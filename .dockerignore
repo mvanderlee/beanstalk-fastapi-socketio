@@ -1,0 +1,8 @@
+.vscode
+.venv
+
+*.py[cod]
+*$py.class
+**/*.pyc
+__pycache__/
+.pytest_cache/

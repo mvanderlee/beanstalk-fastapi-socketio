@@ -1,0 +1,43 @@
+default_language_version:
+  python: python3.11
+files: '.*'
+exclude: '^.*.ipynb$'
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: check-added-large-files
+  - id: check-shebang-scripts-are-executable
+  - id: check-yaml
+  - id: mixed-line-ending
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+
+- repo: https://github.com/asottile/pyupgrade
+  rev: v3.4.0
+  hooks:
+  - id: pyupgrade
+    args:
+    - --py3-plus
+    - --keep-runtime-typing
+
+- repo: https://github.com/asottile/add-trailing-comma
+  rev: v2.4.0
+  hooks:
+  - id: add-trailing-comma
+
+- repo: https://github.com/timothycrosley/isort
+  rev: 5.12.0
+  hooks:
+  - id: isort
+
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  rev: v0.0.267
+  hooks:
+  - id: ruff
+    args:
+    - --fix
+
+ci:
+  autofix_commit_msg: 🎨 [pre-commit.ci] Auto format from pre-commit.com hooks
+  autoupdate_commit_msg: ⬆ [pre-commit.ci] pre-commit autoupdate

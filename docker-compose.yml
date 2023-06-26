@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+
+  psql:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=testuser
+      - POSTGRES_PASSWORD=testpass
+      - POSTGRES_DB=test_db
+
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    logging:
+      driver: journald
+      options:
+        tag: "beanstalk-fastapi|{{.ImageName}}|{{.DaemonName}}"
+    depends_on:
+      - psql
+    environment:
+      - LOGURU_LEVEL=INFO
+      - DATABASE_URL=postgresql+asyncpg://testuser:testpass@psql/test_db
+      - INIT_DB=true
+    ports:
+      - 5000:5000

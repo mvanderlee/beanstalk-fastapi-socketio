@@ -1,0 +1,150 @@
+[
+  {
+    "_id": "cbcec15d-9676-4c8d-ad12-878850971b42",
+    "colId": "0f526ffb-e929-46a1-a626-81c0c5689f29",
+    "containerId": "a5165abc-53d5-4fb7-a9df-c58a5d3bae52",
+    "name": "Register User",
+    "url": "{{API_URL}}/v1/auth/register",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-06-20T23:12:14.534Z",
+    "modified": "2023-06-24T15:02:26.111Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"test@test.com\",\n  \"password\": \"Foobar1!\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "44532dad-97fa-4933-94c2-c57db1873615",
+    "colId": "0f526ffb-e929-46a1-a626-81c0c5689f29",
+    "containerId": "c07036ad-7629-4d84-8512-e046697e9df8",
+    "name": "List Users",
+    "url": "{{API_URL}}/v1/users",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-06-20T23:36:07.986Z",
+    "modified": "2023-06-25T12:59:18.481Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{access_token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "0d9f280a-99cd-495a-853a-c7b34fba3ca3",
+    "colId": "0f526ffb-e929-46a1-a626-81c0c5689f29",
+    "containerId": "a5165abc-53d5-4fb7-a9df-c58a5d3bae52",
+    "name": "Login",
+    "url": "{{API_URL}}/v1/auth/login",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-06-25T12:41:06.334Z",
+    "modified": "2023-06-25T12:59:05.505Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "username",
+          "value": "test@test.com"
+        },
+        {
+          "name": "password",
+          "value": "Foobar1!"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.access_token",
+        "action": "setto",
+        "value": "{{access_token}}"
+      }
+    ]
+  },
+  {
+    "_id": "747df2c4-72c0-4ef8-bd12-5d8ff5ac3445",
+    "colId": "0f526ffb-e929-46a1-a626-81c0c5689f29",
+    "containerId": "a5165abc-53d5-4fb7-a9df-c58a5d3bae52",
+    "name": "Forgot Password",
+    "url": "{{API_URL}}/v1/auth/check_reset_code",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2023-06-25T23:58:26.157Z",
+    "modified": "2023-06-26T03:27:29.068Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"test@test.com\",\n  \"code\": \"ODSOUbknhNYuflTrjyPA0oQ1QSnuj9-B\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "8c7a23ed-9921-4f84-bfbc-4764778cb760",
+    "colId": "0f526ffb-e929-46a1-a626-81c0c5689f29",
+    "containerId": "a5165abc-53d5-4fb7-a9df-c58a5d3bae52",
+    "name": "Confirm User",
+    "url": "{{API_URL}}/v1/auth/confirm",
+    "method": "POST",
+    "sortNum": 25000,
+    "created": "2023-06-26T02:04:44.967Z",
+    "modified": "2023-06-26T02:35:03.403Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"test@test.com\",\n  \"code\": \"LANxsK9L7_NZweAeX77_UlDVXXyVLUJI\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d08b6fa0-4860-4d4c-9c9a-cd6aebff1364",
+    "colId": "0f526ffb-e929-46a1-a626-81c0c5689f29",
+    "containerId": "a5165abc-53d5-4fb7-a9df-c58a5d3bae52",
+    "name": "Check Reset Code",
+    "url": "{{API_URL}}/v1/auth/forgot_password",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2023-06-26T03:26:53.260Z",
+    "modified": "2023-06-26T03:28:41.708Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"test@test.com\",\n  \"code\": \"ODSOUbknhNYuflTrjyPA0oQ1QSnuj9-B\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "af6f5e44-71e6-453b-9f61-756ceb90aec3",
+    "colId": "0f526ffb-e929-46a1-a626-81c0c5689f29",
+    "containerId": "a5165abc-53d5-4fb7-a9df-c58a5d3bae52",
+    "name": "Reset Password",
+    "url": "{{API_URL}}/v1/auth/reset_password",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2023-06-26T03:26:55.099Z",
+    "modified": "2023-06-26T03:29:08.325Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"test@test.com\",\n  \"code\": \"ODSOUbknhNYuflTrjyPA0oQ1QSnuj9-B\",\n  \"password\": \"Foobar2!\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
